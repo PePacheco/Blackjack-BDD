@@ -1,9 +1,9 @@
 from behave import *
 from Blackjack import *
 
-################
-### GIVEN
-################
+################################
+#	 		GIVEN
+################################
 
 # First scenario
 @given('a dealer')
@@ -23,9 +23,9 @@ def step_impl(context, hand):
 	context.dealer.hand = hand.split(',')
 
 
-################
-### WHEN
-################
+################################
+#	 		WHEN
+################################
 
 # First scenario
 @when('the round starts')
@@ -43,9 +43,9 @@ def step_impl(context):
 	context.dealer_play = context.dealer.determinePlay(context.total)
 
 
-################
-### THEN
-################
+################################
+#	 		THEN
+################################
 
 # First scenario
 @then('the dealer gives itself two cards')
