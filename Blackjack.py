@@ -57,11 +57,10 @@ class Player():
 	def getHandTotal(self):
 		self.total = handTotal(self.hand)
 		return handTotal(self.hand)
-
-	def checkIfLost(self, total):
-		return total > 21 
 	
 	def checkIfWon(self, playerTotal, dealerTotal):
+		if playerTotal > 21:
+			return False
 		if dealerTotal > 21:
 			return True
 		if playerTotal == 21 and dealerTotal < 21:

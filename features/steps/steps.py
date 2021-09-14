@@ -79,7 +79,7 @@ def step_impl(context):
 
 @when('the player sums the cards and the sum is greater than 21')
 def step_impl(context):
-	context.player_lost = context.player.checkIfLost(context.player.total)
+	context.player_lost = not context.player.checkIfWon(context.player.total, 20)
 
 @when('the player sums the cards and the sum is equal to 21')
 def step_impl(context):
