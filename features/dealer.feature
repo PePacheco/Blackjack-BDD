@@ -2,13 +2,13 @@ Feature: The dealer for the game of 21
 
 Scenario: Deal initial cards
   Given a dealer
-  When the round starts
+  When the round starts for the dealer
   Then the dealer gives itself two cards
 
 Scenario Outline: Get hand total
-  Given a <hand>
+  Given a <hand> for the dealer
   When the dealer sums the cards
-  Then the <total> is correct
+  Then the <total> is correct for the dealer
 
   Examples: Hands
   | hand          | total |
@@ -19,9 +19,9 @@ Scenario Outline: Get hand total
   | A,A,A         | 13    |
 
 Scenario Outline: Dealer plays by the rules
-  Given a hand <total>
+  Given a hand <total> for the dealer
    when the dealer determines a play
-   then the <play> is correct
+   then the <play> is correct for the dealer
 
   Examples: Hands
   | total  | play   |
@@ -37,5 +37,5 @@ Scenario Outline: Dealer plays by the rules
 
 Scenario: A Dealer can always play
   Given a dealer
-  When the round starts
+  When the round starts for the dealer
   Then the dealer chooses a play

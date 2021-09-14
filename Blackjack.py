@@ -25,12 +25,17 @@ def handTotal(hand):
 class Dealer():
 	def __init__(self):
 		self.hand = []
+		self.total = 0
 
 	def newRound(self):
 		self.hand = [nextCard(), nextCard()]
 
 	def getHandTotal(self):
+		self.total = handTotal(self.hand)
 		return handTotal(self.hand)
+
+	def giveTwoCard():
+		return [nextCard(), nextCard()]
 
 	def determinePlay(self, total):
 		if total < 17:
@@ -42,4 +47,27 @@ class Dealer():
 		return self.determinePlay(self.getHandTotal())
 
 class Player():
-	pass
+	def __init__(self):
+		self.hand = []
+		self.total = 0
+
+	def newRound(self):
+		self.hand = [nextCard(), nextCard()]
+
+	def getHandTotal(self):
+		self.total = handTotal(self.hand)
+		return handTotal(self.hand)
+
+	def checkIfLost(self, total):
+		return total > 21 
+	
+	def checkIfWon(self, playerTotal, dealerTotal):
+		if dealerTotal > 21:
+			return True
+		if playerTotal == 21 and dealerTotal < 21:
+			return True
+		if playerTotal < 21 and dealerTotal > 17 and dealerTotal < playerTotal:
+			return True
+		else:
+			return False
+		
