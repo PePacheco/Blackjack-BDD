@@ -58,3 +58,4 @@ Scenario Outline: Determine if the player wins if no one reaches total of 21 in 
   Examples: Hands
   | totalPlayer | totalDealer  |
   | 20          |	 18          |
+  | 19          |	 18          |
